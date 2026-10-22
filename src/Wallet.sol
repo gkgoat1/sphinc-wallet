@@ -12,8 +12,8 @@ contract Wallet is Account, ERC7821, IERC1271{
     constructor(bytes calldata _pubkey){
         pubkey = _pubkey;
     }
-    function createPresigs(bytes calldata data, bytes calldata subsig) external{
-        require(_rawSignatureValidation(keccak256(data),subsig));
+    function createPresigs(bytes calldata data) external{
+        require(msg.sender == address(this));
         for(uint256 a = 0; a < data.length / 32; a++){
             uint256 i = uint256(bytes32(data[a * 32:a * 32 + 32]));
             presigs[uint248(i >> 3)] |= (1 << (i & 7));

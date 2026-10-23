@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {Account} from "openzeppelin-contracts/contracts/account/Account.sol";
 import {ERC7821} from "openzeppelin-contracts/contracts/account/extensions/draft-ERC7821.sol";
 import {IERC1271} from "openzeppelin-contracts/contracts/interfaces/IERC1271.sol";
-import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {Initializable} from "openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol";
 import {SLHDSA} from "slhdsa-solidity/SLHDSA.sol";
 
 contract Wallet is Account, ERC7821, IERC1271, Initializable{
